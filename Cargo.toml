@@ -1,0 +1,10 @@
+[package]
+name = "nyc_tlc_datafusion"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+clap = { version = "4", features = ["derive"] }
+datafusion = { version = "52.1.0", features = ["datetime_expressions"] }

@@ -1,0 +1,446 @@
+Last login: Sun Feb 22 00:07:41 on ttys011
+(base) nikithatalla@Tallas-MacBook-Air ~ % cd ~/Desktop/nyc-tlc-datafusion
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % pwd
+/Users/nikithatalla/Desktop/nyc-tlc-datafusion
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % ls -lh data/yellow/2025
+total 1572120
+-rw-r--r--  1 nikithatalla  staff    56M Feb 19 20:32 yellow_tripdata_2025-01.parquet
+-rw-r--r--  1 nikithatalla  staff    58M Feb 19 20:32 yellow_tripdata_2025-02.parquet
+-rw-r--r--  1 nikithatalla  staff    67M Feb 19 20:32 yellow_tripdata_2025-03.parquet
+-rw-r--r--  1 nikithatalla  staff    64M Feb 19 20:32 yellow_tripdata_2025-04.parquet
+-rw-r--r--  1 nikithatalla  staff    74M Feb 19 20:32 yellow_tripdata_2025-05.parquet
+-rw-r--r--  1 nikithatalla  staff    70M Feb 19 20:32 yellow_tripdata_2025-06.parquet
+-rw-r--r--  1 nikithatalla  staff    64M Feb 19 20:33 yellow_tripdata_2025-07.parquet
+-rw-r--r--  1 nikithatalla  staff    59M Feb 19 20:33 yellow_tripdata_2025-08.parquet
+-rw-r--r--  1 nikithatalla  staff    69M Feb 19 20:33 yellow_tripdata_2025-09.parquet
+-rw-r--r--  1 nikithatalla  staff    72M Feb 19 20:33 yellow_tripdata_2025-10.parquet
+-rw-r--r--  1 nikithatalla  staff    68M Feb 19 20:33 yellow_tripdata_2025-11.parquet
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % cargo clean
+cargo build --release
+     Removed 2379 files, 967.3MiB total
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.44
+   Compiling unicode-ident v1.0.24
+   Compiling libc v0.2.182
+   Compiling cfg-if v1.0.4
+   Compiling autocfg v1.5.0
+   Compiling libm v0.2.16
+   Compiling memchr v2.8.0
+   Compiling shlex v1.3.0
+   Compiling find-msvc-tools v0.1.9
+   Compiling version_check v0.9.5
+   Compiling zerocopy v0.8.39
+   Compiling num-traits v0.2.19
+   Compiling bytes v1.11.1
+   Compiling itoa v1.0.17
+   Compiling getrandom v0.3.4
+   Compiling serde_core v1.0.228
+   Compiling once_cell v1.21.3
+   Compiling syn v2.0.116
+   Compiling jobserver v0.1.34
+   Compiling zmij v1.0.21
+   Compiling core-foundation-sys v0.8.7
+   Compiling cc v1.2.56
+   Compiling serde_json v1.0.149
+   Compiling iana-time-zone v0.1.65
+   Compiling foldhash v0.2.0
+   Compiling num-integer v0.1.46
+   Compiling siphasher v1.0.2
+   Compiling allocator-api2 v0.2.21
+   Compiling equivalent v1.0.2
+   Compiling num-bigint v0.4.6
+   Compiling pkg-config v0.3.32
+   Compiling stable_deref_trait v1.2.1
+   Compiling hashbrown v0.16.1
+   Compiling phf_shared v0.12.1
+   Compiling chrono v0.4.43
+   Compiling ahash v0.8.12
+   Compiling chrono-tz v0.10.4
+   Compiling phf v0.12.1
+   Compiling num-complex v0.4.6
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling pin-project-lite v0.2.16
+   Compiling lexical-util v1.0.7
+   Compiling object v0.37.3
+   Compiling smallvec v1.15.1
+   Compiling writeable v0.6.2
+   Compiling litemap v0.8.1
+   Compiling futures-core v0.3.32
+   Compiling icu_normalizer_data v2.1.1
+   Compiling futures-sink v0.3.32
+   Compiling icu_properties_data v2.1.2
+   Compiling synstructure v0.13.2
+   Compiling arrow-schema v57.3.0
+   Compiling zstd-safe v7.2.4
+   Compiling zerocopy-derive v0.8.39
+   Compiling zerofrom-derive v0.1.6
+   Compiling yoke-derive v0.8.1
+   Compiling zerovec-derive v0.11.2
+   Compiling displaydoc v0.2.5
+   Compiling zerofrom v0.1.6
+   Compiling lexical-parse-integer v1.0.6
+   Compiling lexical-write-integer v1.0.6
+   Compiling yoke v0.8.1
+   Compiling semver v1.0.27
+   Compiling lexical-write-float v1.0.6
+   Compiling ar_archive_writer v0.5.1
+   Compiling zerovec v0.11.5
+   Compiling zerotrie v0.2.3
+   Compiling rustc_version v0.4.1
+   Compiling lexical-parse-float v1.0.6
+   Compiling tinystr v0.8.2
+   Compiling potential_utf v0.1.4
+   Compiling icu_collections v2.1.1
+   Compiling futures-macro v0.3.32
+   Compiling tokio-macros v2.6.0
+   Compiling icu_locale_core v2.1.1
+   Compiling futures-channel v0.3.32
+   Compiling futures-io v0.3.32
+   Compiling unicode-width v0.2.2
+   Compiling futures-task v0.3.32
+   Compiling parking_lot_core v0.9.12
+   Compiling slab v0.4.12
+   Compiling crc32fast v1.5.0
+   Compiling unicode-segmentation v1.12.0
+   Compiling icu_provider v2.1.1
+   Compiling bitflags v2.11.0
+   Compiling ryu v1.0.23
+   Compiling comfy-table v7.2.2
+   Compiling icu_properties v2.1.2
+   Compiling icu_normalizer v2.1.1
+   Compiling futures-util v0.3.32
+   Compiling tokio v1.49.0
+   Compiling half v2.7.1
+   Compiling arrow-buffer v57.3.0
+   Compiling psm v0.1.30
+   Compiling lexical-core v1.0.6
+   Compiling flatbuffers v25.12.19
+   Compiling atoi v2.0.0
+   Compiling arrow-data v57.3.0
+   Compiling aho-corasick v1.1.4
+   Compiling simd-adler32 v0.3.8
+   Compiling arrow-array v57.3.0
+   Compiling adler2 v2.0.1
+   Compiling regex-syntax v0.8.9
+   Compiling base64 v0.22.1
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling miniz_oxide v0.8.9
+   Compiling futures-executor v0.3.32
+   Compiling regex-automata v0.4.14
+   Compiling arrow-select v57.3.0
+   Compiling idna_adapter v1.2.1
+   Compiling stacker v0.1.23
+   Compiling zlib-rs v0.6.2
+   Compiling twox-hash v2.1.2
+   Compiling alloc-no-stdlib v2.0.4
+   Compiling thiserror v2.0.18
+   Compiling percent-encoding v2.3.2
+   Compiling utf8_iter v1.0.4
+   Compiling arrow-ord v57.3.0
+   Compiling idna v1.1.0
+   Compiling arrow-cast v57.3.0
+   Compiling flate2 v1.1.9
+   Compiling form_urlencoded v1.2.2
+   Compiling alloc-stdlib v0.2.2
+   Compiling lz4_flex v0.12.0
+   Compiling regex v1.12.3
+   Compiling futures v0.3.32
+   Compiling tracing-attributes v0.1.31
+   Compiling zstd v0.13.3
+   Compiling thiserror-impl v2.0.18
+   Compiling indexmap v2.13.0
+   Compiling tracing-core v0.1.36
+   Compiling csv-core v0.1.13
+   Compiling snap v1.1.1
+   Compiling same-file v1.0.6
+   Compiling paste v1.0.15
+   Compiling simdutf8 v0.1.5
+   Compiling either v1.15.0
+   Compiling walkdir v2.5.0
+   Compiling itertools v0.14.0
+   Compiling csv v1.4.0
+   Compiling tracing v0.1.44
+   Compiling arrow-ipc v57.3.0
+   Compiling brotli-decompressor v5.0.0
+   Compiling url v2.5.8
+   Compiling parking_lot v0.12.5
+   Compiling async-trait v0.1.89
+   Compiling recursive-proc-macro-impl v0.1.1
+   Compiling ordered-float v2.10.1
+   Compiling http v1.4.0
+   Compiling humantime v2.3.0
+   Compiling integer-encoding v3.0.4
+   Compiling log v0.4.29
+   Compiling byteorder v1.5.0
+   Compiling thrift v0.17.0
+   Compiling object_store v0.12.5
+   Compiling recursive v0.1.1
+   Compiling brotli v8.0.2
+   Compiling arrow-csv v57.3.0
+   Compiling arrow-json v57.3.0
+   Compiling arrow-string v57.3.0
+   Compiling arrow-arith v57.3.0
+   Compiling arrow-row v57.3.0
+   Compiling sqlparser_derive v0.3.0
+   Compiling seq-macro v0.3.6
+   Compiling sqlparser v0.59.0
+   Compiling parquet v57.3.0
+   Compiling arrow v57.3.0
+   Compiling typenum v1.19.0
+   Compiling generic-array v0.14.7
+   Compiling datafusion-doc v52.1.0
+   Compiling getrandom v0.4.1
+   Compiling rustix v1.1.3
+   Compiling crossbeam-utils v0.8.21
+   Compiling foldhash v0.1.5
+   Compiling hashbrown v0.15.5
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_core v0.9.5
+   Compiling errno v0.3.14
+   Compiling subtle v2.6.1
+   Compiling fixedbitset v0.5.7
+   Compiling digest v0.10.7
+   Compiling petgraph v0.8.3
+   Compiling rand_chacha v0.9.0
+   Compiling datafusion-common v52.1.0
+   Compiling hashbrown v0.14.5
+   Compiling fastrand v2.3.0
+   Compiling datafusion-macros v52.1.0
+   Compiling tempfile v3.25.0
+   Compiling dashmap v6.1.0
+   Compiling rand v0.9.2
+   Compiling blake3 v1.8.3
+   Compiling cpufeatures v0.2.17
+   Compiling arrayvec v0.7.6
+   Compiling arrayref v0.3.9
+   Compiling constant_time_eq v0.4.2
+   Compiling sha2 v0.10.9
+   Compiling blake2 v0.10.6
+   Compiling md-5 v0.10.6
+   Compiling uuid v1.21.0
+   Compiling liblzma-sys v0.4.5
+   Compiling datafusion-expr-common v52.1.0
+   Compiling hex v0.4.3
+   Compiling datafusion-physical-expr-common v52.1.0
+   Compiling datafusion-functions-window-common v52.1.0
+   Compiling datafusion-functions-aggregate-common v52.1.0
+   Compiling datafusion-expr v52.1.0
+   Compiling libbz2-rs-sys v0.2.2
+   Compiling datafusion-physical-expr v52.1.0
+   Compiling datafusion-execution v52.1.0
+   Compiling datafusion-functions v52.1.0
+   Compiling bzip2 v0.6.1
+   Compiling liblzma v0.4.6
+   Compiling datafusion-common-runtime v52.1.0
+   Compiling compression-core v0.4.31
+   Compiling compression-codecs v0.4.37
+   Compiling async-compression v0.4.40
+   Compiling tokio-util v0.7.18
+   Compiling datafusion-physical-plan v52.1.0
+   Compiling datafusion-physical-expr-adapter v52.1.0
+   Compiling glob v0.3.3
+   Compiling datafusion-session v52.1.0
+   Compiling datafusion-datasource v52.1.0
+   Compiling bigdecimal v0.4.10
+   Compiling utf8parse v0.2.2
+   Compiling anstyle-parse v0.2.7
+   Compiling datafusion-pruning v52.1.0
+   Compiling datafusion-catalog v52.1.0
+   Compiling anstyle-query v1.1.5
+   Compiling colorchoice v1.0.4
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle v1.0.13
+   Compiling anstream v0.6.21
+   Compiling datafusion-functions-aggregate v52.1.0
+   Compiling anyhow v1.0.101
+   Compiling clap_lex v1.0.0
+   Compiling strsim v0.11.1
+   Compiling heck v0.5.0
+   Compiling clap_derive v4.5.55
+   Compiling clap_builder v4.5.60
+   Compiling datafusion-functions-nested v52.1.0
+   Compiling datafusion-catalog-listing v52.1.0
+   Compiling datafusion-functions-table v52.1.0
+   Compiling datafusion-sql v52.1.0
+   Compiling datafusion-physical-optimizer v52.1.0
+   Compiling datafusion-datasource-parquet v52.1.0
+   Compiling datafusion-datasource-json v52.1.0
+   Compiling datafusion-datasource-csv v52.1.0
+   Compiling datafusion-datasource-arrow v52.1.0
+   Compiling datafusion-functions-window v52.1.0
+   Compiling datafusion-optimizer v52.1.0
+   Compiling clap v4.5.60
+   Compiling datafusion v52.1.0
+   Compiling nyc_tlc_datafusion v0.1.0 (/Users/nikithatalla/Desktop/nyc-tlc-datafusion)
+    Finished `release` profile [optimized] target(s) in 5m 06s
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % cargo run --release -- --data-dir ./data/yellow/2025 --year 2025 > final_output.txt
+    Finished `release` profile [optimized] target(s) in 0.09s
+     Running `target/release/nyc_tlc_datafusion --data-dir ./data/yellow/2025 --year 2025`
+⚠️  Some expected files are missing in ./data/yellow/2025:
+   - yellow_tripdata_2025-12.parquet
+
+Tip: you can test with 1 month first and later add all 12 months.
+
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % head -n 40 final_output.txt
+Loaded table 'yellow' from: ./data/yellow/2025
+Running aggregations for year 2025...
+
+==============================
+Aggregation 1 (DataFrame API): Trips and revenue by pickup month
+==============================
+
+--- Aggregation 1 (DataFrame API) ---
++---------------------+------------+--------------------+--------------------+
+| pickup_month        | trip_count | total_revenue      | avg_fare           |
++---------------------+------------+--------------------+--------------------+
+| 2007-12-01T00:00:00 | 1          | 22.75              | 17.0               |
+| 2008-12-01T00:00:00 | 1          | 80.94              | 70.0               |
+| 2009-01-01T00:00:00 | 6          | 313.61             | 36.48333333333333  |
+| 2024-12-01T00:00:00 | 21         | 589.1699999999998  | 19.123809523809523 |
+| 2025-01-01T00:00:00 | 3475234    | 89005282.25002402  | 17.081814801530168 |
+| 2025-02-01T00:00:00 | 3577542    | 89547675.86003184  | 16.748958058352102 |
+| 2025-03-01T00:00:00 | 4145229    | 108878168.22003478 | 17.800348813050288 |
+| 2025-04-01T00:00:00 | 3970568    | 105596876.87002662 | 17.965093079878287 |
+| 2025-05-01T00:00:00 | 4591844    | 123430419.10002537 | 18.35796367211189  |
+| 2025-06-01T00:00:00 | 4322949    | 118393545.05005443 | 18.977994450083987 |
+| 2025-07-01T00:00:00 | 3898971    | 104599459.73005633 | 18.54771882889382  |
+| 2025-08-01T00:00:00 | 3574080    | 94315391.11003365  | 18.095218758395298 |
+| 2025-09-01T00:00:00 | 4251019    | 117809613.95002845 | 19.20399203343822  |
+| 2025-10-01T00:00:00 | 4428708    | 119458159.20002028 | 18.255551580730423 |
+| 2025-11-01T00:00:00 | 4181423    | 107106835.5900042  | 17.1179094222211   |
++---------------------+------------+--------------------+--------------------+
+
+==============================
+Aggregation 1 (SQL): Trips and revenue by pickup month
+==============================
+
+--- Aggregation 1 (SQL) ---
++---------------------+------------+--------------------+--------------------+
+| pickup_month        | trip_count | total_revenue      | avg_fare           |
++---------------------+------------+--------------------+--------------------+
+| 2007-12-01T00:00:00 | 1          | 22.75              | 17.0               |
+| 2008-12-01T00:00:00 | 1          | 80.94              | 70.0               |
+| 2009-01-01T00:00:00 | 6          | 313.61             | 36.483333333333334 |
+| 2024-12-01T00:00:00 | 21         | 589.1699999999998  | 19.123809523809523 |
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % tail -n 30 final_output.txt
+
+--- Aggregation 2 (DataFrame API) ---
++--------------+------------+-----------------------+------------------------+
+| payment_type | trip_count | avg_tip_amount        | tip_rate               |
++--------------+------------+-----------------------+------------------------+
+| 1            | 28435228   | 4.327045727570531     | 0.1435331317636183     |
+| 0            | 10416412   | 0.3105545441174999    | 0.014762348644731846   |
+| 2            | 4253326    | 0.0018455980096517407 | 0.00008063326554927663 |
+| 4            | 1025068    | 0.019466337842952867  | 0.008758622818937516   |
+| 3            | 287559     | 0.011455457836478774  | 0.0015293984665957034  |
+| 5            | 3          | 0.0                   | 0.0                    |
++--------------+------------+-----------------------+------------------------+
+
+==============================
+Aggregation 2 (SQL): Tip behavior by payment type
+==============================
+
+--- Aggregation 2 (SQL) ---
++--------------+------------+----------------------+------------------------+
+| payment_type | trip_count | avg_tip_amount       | tip_rate               |
++--------------+------------+----------------------+------------------------+
+| 1            | 28435228   | 4.327045727570531    | 0.14353313176361832    |
+| 0            | 10416412   | 0.3105545441174999   | 0.014762348644731846   |
+| 2            | 4253326    | 0.001845598009651741 | 0.00008063326554927664 |
+| 4            | 1025068    | 0.019466337842952867 | 0.008758622818937516   |
+| 3            | 287559     | 0.011455457836478774 | 0.0015293984665957034  |
+| 5            | 3          | 0.0                  | 0.0                    |
++--------------+------------+----------------------+------------------------+
+
+✅ All aggregations completed successfully.
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % cat final_output.txt
+Loaded table 'yellow' from: ./data/yellow/2025
+Running aggregations for year 2025...
+
+==============================
+Aggregation 1 (DataFrame API): Trips and revenue by pickup month
+==============================
+
+--- Aggregation 1 (DataFrame API) ---
++---------------------+------------+--------------------+--------------------+
+| pickup_month        | trip_count | total_revenue      | avg_fare           |
++---------------------+------------+--------------------+--------------------+
+| 2007-12-01T00:00:00 | 1          | 22.75              | 17.0               |
+| 2008-12-01T00:00:00 | 1          | 80.94              | 70.0               |
+| 2009-01-01T00:00:00 | 6          | 313.61             | 36.48333333333333  |
+| 2024-12-01T00:00:00 | 21         | 589.1699999999998  | 19.123809523809523 |
+| 2025-01-01T00:00:00 | 3475234    | 89005282.25002402  | 17.081814801530168 |
+| 2025-02-01T00:00:00 | 3577542    | 89547675.86003184  | 16.748958058352102 |
+| 2025-03-01T00:00:00 | 4145229    | 108878168.22003478 | 17.800348813050288 |
+| 2025-04-01T00:00:00 | 3970568    | 105596876.87002662 | 17.965093079878287 |
+| 2025-05-01T00:00:00 | 4591844    | 123430419.10002537 | 18.35796367211189  |
+| 2025-06-01T00:00:00 | 4322949    | 118393545.05005443 | 18.977994450083987 |
+| 2025-07-01T00:00:00 | 3898971    | 104599459.73005633 | 18.54771882889382  |
+| 2025-08-01T00:00:00 | 3574080    | 94315391.11003365  | 18.095218758395298 |
+| 2025-09-01T00:00:00 | 4251019    | 117809613.95002845 | 19.20399203343822  |
+| 2025-10-01T00:00:00 | 4428708    | 119458159.20002028 | 18.255551580730423 |
+| 2025-11-01T00:00:00 | 4181423    | 107106835.5900042  | 17.1179094222211   |
++---------------------+------------+--------------------+--------------------+
+
+==============================
+Aggregation 1 (SQL): Trips and revenue by pickup month
+==============================
+
+--- Aggregation 1 (SQL) ---
++---------------------+------------+--------------------+--------------------+
+| pickup_month        | trip_count | total_revenue      | avg_fare           |
++---------------------+------------+--------------------+--------------------+
+| 2007-12-01T00:00:00 | 1          | 22.75              | 17.0               |
+| 2008-12-01T00:00:00 | 1          | 80.94              | 70.0               |
+| 2009-01-01T00:00:00 | 6          | 313.61             | 36.483333333333334 |
+| 2024-12-01T00:00:00 | 21         | 589.1699999999998  | 19.123809523809523 |
+| 2025-01-01T00:00:00 | 3475234    | 89005282.25002402  | 17.081814801530168 |
+| 2025-02-01T00:00:00 | 3577542    | 89547675.86003184  | 16.748958058352102 |
+| 2025-03-01T00:00:00 | 4145229    | 108878168.22003478 | 17.800348813050288 |
+| 2025-04-01T00:00:00 | 3970568    | 105596876.87002662 | 17.965093079878287 |
+| 2025-05-01T00:00:00 | 4591844    | 123430419.10002537 | 18.35796367211189  |
+| 2025-06-01T00:00:00 | 4322949    | 118393545.05005443 | 18.977994450083987 |
+| 2025-07-01T00:00:00 | 3898971    | 104599459.73005633 | 18.54771882889382  |
+| 2025-08-01T00:00:00 | 3574080    | 94315391.11003365  | 18.095218758395298 |
+| 2025-09-01T00:00:00 | 4251019    | 117809613.95002845 | 19.20399203343822  |
+| 2025-10-01T00:00:00 | 4428708    | 119458159.20002028 | 18.255551580730423 |
+| 2025-11-01T00:00:00 | 4181423    | 107106835.5900042  | 17.1179094222211   |
++---------------------+------------+--------------------+--------------------+
+
+==============================
+Aggregation 2 (DataFrame API): Tip behavior by payment type
+==============================
+
+--- Aggregation 2 (DataFrame API) ---
++--------------+------------+-----------------------+------------------------+
+| payment_type | trip_count | avg_tip_amount        | tip_rate               |
++--------------+------------+-----------------------+------------------------+
+| 1            | 28435228   | 4.327045727570531     | 0.1435331317636183     |
+| 0            | 10416412   | 0.3105545441174999    | 0.014762348644731846   |
+| 2            | 4253326    | 0.0018455980096517407 | 0.00008063326554927663 |
+| 4            | 1025068    | 0.019466337842952867  | 0.008758622818937516   |
+| 3            | 287559     | 0.011455457836478774  | 0.0015293984665957034  |
+| 5            | 3          | 0.0                   | 0.0                    |
++--------------+------------+-----------------------+------------------------+
+
+==============================
+Aggregation 2 (SQL): Tip behavior by payment type
+==============================
+
+--- Aggregation 2 (SQL) ---
++--------------+------------+----------------------+------------------------+
+| payment_type | trip_count | avg_tip_amount       | tip_rate               |
++--------------+------------+----------------------+------------------------+
+| 1            | 28435228   | 4.327045727570531    | 0.14353313176361832    |
+| 0            | 10416412   | 0.3105545441174999   | 0.014762348644731846   |
+| 2            | 4253326    | 0.001845598009651741 | 0.00008063326554927664 |
+| 4            | 1025068    | 0.019466337842952867 | 0.008758622818937516   |
+| 3            | 287559     | 0.011455457836478774 | 0.0015293984665957034  |
+| 5            | 3          | 0.0                  | 0.0                    |
++--------------+------------+----------------------+------------------------+
+
+✅ All aggregations completed successfully.
+(base) nikithatalla@Tallas-MacBook-Air nyc-tlc-datafusion % 
